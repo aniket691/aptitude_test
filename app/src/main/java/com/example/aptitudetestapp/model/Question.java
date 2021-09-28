@@ -7,7 +7,17 @@ public class Question {
 
     String dec;
     String ans;
+    String type;
     int whichChecked;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 
     public int getWhichChecked() {
         return whichChecked;

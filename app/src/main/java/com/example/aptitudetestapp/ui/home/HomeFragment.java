@@ -17,10 +17,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aptitudetestapp.ModelResponse.AnswerResponse;
+import com.example.aptitudetestapp.ModelResponse.QuestionListResponse;
 import com.example.aptitudetestapp.R;
 import com.example.aptitudetestapp.RetrofitClient;
 import com.example.aptitudetestapp.adapter.QuestionAdapter;
 
+import com.example.aptitudetestapp.model.Ques;
 import com.example.aptitudetestapp.model.Question;
 
 import org.w3c.dom.Text;
@@ -36,6 +38,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private List<Question> questions_list;
+    private List<Ques> questions_list_temp;
     private RecyclerView question_recycler_view;
     private QuestionAdapter questions_adapter;
 
@@ -52,12 +55,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         //find object
         question_recycler_view = v.findViewById(R.id.recycler_view);
+
+
+//        Toast.makeText(getActivity(), String.valueOf(questions_list_temp.size()), Toast.LENGTH_SHORT).show();
         sub_btn = v.findViewById(R.id.submit_button);
         test = v.findViewById(R.id.test);
 
+        questions_list_temp = new ArrayList<>();
+
+        Call<QuestionListResponse> call = RetrofitClient
+                .getInstance()
+                .getApi()
+                .getQuesList();
+
+        call.enqueue(new Callback<QuestionListResponse>() {
+            @Override
+            public void onResponse(Call<QuestionListResponse> call, Response<QuestionListResponse> response) {
+                if (response.isSuccessful()) {
+                    questions_list_temp = response.body().getQues();
+                    Toast.makeText(getActivity(), String.valueOf(questions_list_temp.size()), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<QuestionListResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         questions_list = new ArrayList<>();
         ans_input_list = new ArrayList<>();
-        questions_list.add(new Question("A person crosses a 600 m long street in 5 minutes. What is his speed in km per hour?", "A"));
+
         //create adapter and assign it to recycler view
         questions_adapter = new QuestionAdapter(getContext(), questions_list);
         question_recycler_view.setAdapter(questions_adapter);
@@ -70,7 +98,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         return v;
 
     }
-
 
     private int getRightAns(List<Question> questions_list) {
         for (int i = 0; i < questions_list.size(); i++) {
@@ -110,7 +137,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 ans_input_list.add(questions_list.get(i).getWhichChecked());
             }
             int c = getRightAns(questions_list);
-            //test.setText(c);
+            test.setText(String.valueOf(c));
         }
     }
 
