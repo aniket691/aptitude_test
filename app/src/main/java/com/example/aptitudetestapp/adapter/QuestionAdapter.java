@@ -80,7 +80,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    Toast.makeText(context.getApplicationContext(), "cheked 4", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(context.getApplicationContext(), "cheked 4", Toast.LENGTH_LONG).show();
                     questions_list.get(holder.getAdapterPosition()).setWhichChecked(4);
                 }
             }

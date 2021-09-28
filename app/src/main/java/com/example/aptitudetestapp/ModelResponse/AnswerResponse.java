@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class AnswerResponse {
 
-    @SerializedName("questions")
+    @SerializedName("ans")
     private String ans;
-
+    @SerializedName("error")
     private String error;
 
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();

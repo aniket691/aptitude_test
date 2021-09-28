@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +16,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.aptitudetestapp.ModelResponse.AnswerResponse;
 import com.example.aptitudetestapp.R;
+import com.example.aptitudetestapp.RetrofitClient;
 import com.example.aptitudetestapp.adapter.QuestionAdapter;
 
 import com.example.aptitudetestapp.model.Question;
@@ -26,6 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private List<Question> questions_list;
@@ -34,6 +41,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private Button sub_btn;
     private TextView test;
+    private List<Integer> ans_input_list;
+    int right_count = 0;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,9 +56,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         test = v.findViewById(R.id.test);
 
         questions_list = new ArrayList<>();
-        questions_list.add(new Question("questions", "A"));
-        questions_list.add(new Question("question2", "B"));
-
+        ans_input_list = new ArrayList<>();
+        questions_list.add(new Question("A person crosses a 600 m long street in 5 minutes. What is his speed in km per hour?", "A"));
         //create adapter and assign it to recycler view
         questions_adapter = new QuestionAdapter(getContext(), questions_list);
         question_recycler_view.setAdapter(questions_adapter);
@@ -63,6 +71,33 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     }
 
+
+    private int getRightAns(List<Question> questions_list) {
+        for (int i = 0; i < questions_list.size(); i++) {
+            String ques = questions_list.get(i).getDec();
+            Call<AnswerResponse> call = RetrofitClient
+                    .getInstance()
+                    .getApi()
+                    .getAns(ques);
+            call.enqueue(new Callback<AnswerResponse>() {
+                @Override
+                public void onResponse(Call<AnswerResponse> call, Response<AnswerResponse> response) {
+                    AnswerResponse answerResponse = response.body();
+                    if (response.isSuccessful()) {
+                        Toast.makeText(getActivity(), answerResponse.getAns(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<AnswerResponse> call, Throwable t) {
+                    Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+        return 0;
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -72,8 +107,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.submit_button) {
             for (int i = 0; i < questions_list.size(); i++) {
-                test.setText(String.valueOf(questions_list.get(i).getWhichChecked()) + " ");
+                ans_input_list.add(questions_list.get(i).getWhichChecked());
             }
+            int c = getRightAns(questions_list);
+            //test.setText(c);
         }
     }
+
 }

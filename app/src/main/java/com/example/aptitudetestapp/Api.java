@@ -1,59 +1,19 @@
 package com.example.aptitudetestapp;
-//
-//import com.thecodingshef.usermanagement.ModelResponse.FetchUserResponse;
-//import com.thecodingshef.usermanagement.ModelResponse.LoginResponse;
-//import com.thecodingshef.usermanagement.ModelResponse.UpdatePassResponse;
-//
-//import okhttp3.ResponseBody;
-//import retrofit2.Call;
-//import retrofit2.http.Field;
-//import retrofit2.http.FormUrlEncoded;
-//import retrofit2.http.GET;
-//import retrofit2.http.POST;
-//
-//public interface Api {
-//
-//    @FormUrlEncoded
-//    @POST("register.php")
-//    Call<ResponseBody> register(
-//            @Field("username") String username,
-//            @Field("email") String email,
-//            @Field("password") String password
-//
-//    );
-//
-//    @FormUrlEncoded
-//    @POST("login.php")
-//    Call<LoginResponse> login(
-//            @Field("email") String email,
-//            @Field("password") String password
-//
-//    );
-//
-//
-//    @GET("fetchusers.php")
-//    Call<FetchUserResponse> fetchAllUsers();
-//
-//
-//    @FormUrlEncoded
-//    @POST("updateuser.php")
-//    Call<LoginResponse> updateUserAccount(
-//            @Field("id") int userid,
-//            @Field("username") String userName,
-//            @Field("email") String email
-//
-//
-//    );
-//
-//    @FormUrlEncoded
-//    @POST("updatepassword.php")
-//    Call<UpdatePassResponse> updateUserPass(
-//            @Field("email") String email,
-//            @Field("current") String currentPassword,
-//            @Field("new") String newPassword
-//
-//
-//    );
-//
-//
-//}
+
+import com.example.aptitudetestapp.ModelResponse.AnswerResponse;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+
+public interface Api {
+
+    @FormUrlEncoded
+    @POST("ans.php")
+    Call<AnswerResponse> getAns(
+            @Field("q") String ans
+    );
+}
