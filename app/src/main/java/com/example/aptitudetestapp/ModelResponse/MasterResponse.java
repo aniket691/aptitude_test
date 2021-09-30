@@ -1,7 +1,6 @@
 package com.example.aptitudetestapp.ModelResponse;
 
-import com.example.aptitudetestapp.model.Ques;
-import com.example.aptitudetestapp.model.Question;
+import com.example.aptitudetestapp.model.ResponseComingQues;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
@@ -9,19 +8,20 @@ import java.util.Map;
 import java.util.List;
 
 
-public class QuestionListResponse {
+public class MasterResponse {
 
-    @SerializedName("q")
-    private List<Ques> ques = null;
+
     @SerializedName("error")
     private String error;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    @SerializedName("q")
+    private List<ResponseComingQues> ques = null;
 
-    public List<Ques> getQues() {
+    public List<ResponseComingQues> getQues() {
         return ques;
     }
 
-    public void setQues(List<Ques> ques) {
+    public void setQues(List<ResponseComingQues> ques) {
         this.ques = ques;
     }
 
@@ -40,7 +40,6 @@ public class QuestionListResponse {
     public void setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
     }
-
 
 }
 

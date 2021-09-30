@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,17 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aptitudetestapp.R;
-import com.example.aptitudetestapp.model.Question;
+import com.example.aptitudetestapp.model.InputQues;
+import com.example.aptitudetestapp.model.ResponseComingQues;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
-    List<Question> questions_list;
+    List<InputQues> questions_list;
     Context context;
 
-    public QuestionAdapter(Context context, List<Question> questions) {
-        this.questions_list = questions;
+    public QuestionAdapter(Context context, List<InputQues> responseComingQues) {
+        this.questions_list = responseComingQues;
         this.context = context;
     }
 
@@ -39,7 +37,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapter.ViewHolder holder, int position) {
-        holder.tv.setText(questions_list.get(position).getDec());
+        holder.tv.setText(questions_list.get(position).getQues());
             /*To get position of item inside recycler view
                 1. set listener on the item if necessary
                 2. get position of model by using getAdapterPosition
@@ -51,7 +49,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Toast.makeText(context.getApplicationContext(), "cheked 1", Toast.LENGTH_LONG).show();
-                    questions_list.get(holder.getAdapterPosition()).setWhichChecked(1);
+                    questions_list.get(holder.getAdapterPosition()).setWhich_checked(1);
                 }
             }
         });
@@ -61,7 +59,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Toast.makeText(context.getApplicationContext(), "cheked 2", Toast.LENGTH_LONG).show();
-                    questions_list.get(holder.getAdapterPosition()).setWhichChecked(2);
+                    questions_list.get(holder.getAdapterPosition()).setWhich_checked(2);
                 }
             }
         });
@@ -71,7 +69,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Toast.makeText(context.getApplicationContext(), "cheked 3", Toast.LENGTH_LONG).show();
-                    questions_list.get(holder.getAdapterPosition()).setWhichChecked(3);
+                    questions_list.get(holder.getAdapterPosition()).setWhich_checked(3);
                 }
             }
         });
@@ -81,7 +79,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     //Toast.makeText(context.getApplicationContext(), "cheked 4", Toast.LENGTH_LONG).show();
-                    questions_list.get(holder.getAdapterPosition()).setWhichChecked(4);
+                    questions_list.get(holder.getAdapterPosition()).setWhich_checked(4);
                 }
             }
         });
