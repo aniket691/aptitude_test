@@ -70,7 +70,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     if (response.isSuccessful()) {
                         server_ans_list = response.body().getQues();
                         for (int i = 0; i < server_ans_list.size(); i++) {
-                            display_ques_list.add(new InputQues(server_ans_list.get(i).getQues()));
+                            display_ques_list.add(new InputQues(server_ans_list.get(i).getQues(), server_ans_list.get(i).getOp1(),
+                                    server_ans_list.get(i).getOp2(), server_ans_list.get(i).getOp3(), server_ans_list.get(i).getOp4()));
                         }
                         questions_adapter = new QuestionAdapter(getContext(), display_ques_list);
                         question_recycler_view.setAdapter(questions_adapter);
@@ -104,7 +105,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         //test = v.findViewById(R.id.test);
         textView = v.findViewById(R.id.textView);
 
-        new CountDownTimer(50000, 1000) {
+        new CountDownTimer(1200000, 1000) {
             public void onTick(long millisUntilFinished) {
                 // Used for formatting digit to be in 2 digits only
                 NumberFormat f = new DecimalFormat("00");

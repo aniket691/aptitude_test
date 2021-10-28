@@ -37,13 +37,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapter.ViewHolder holder, int position) {
+
         holder.tv.setText(questions_list.get(position).getQues());
-            /*To get position of item inside recycler view
-                1. set listener on the item if necessary
-                2. get position of model by using getAdapterPosition
-                    *** don't  ever use get(position) because adapter position keeps changing
-                3. do operation of your choice
-             */
+
+        holder.r1.setText(questions_list.get(position).getOp1());
+        holder.r2.setText(questions_list.get(position).getOp2());
+        holder.r3.setText(questions_list.get(position).getOp3());
+        holder.r4.setText(questions_list.get(position).getOp4());
+
         holder.r1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

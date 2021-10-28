@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static String BASE_URL = "https://www.vbsolutionsltd.com/ljskj'/apti/";
+    private static String BASE_URL = "https://www.vbsolutionsltd.com/apti_rest/";
     private static RetrofitClient retrofitClient;
     private static Retrofit retrofit;
 
