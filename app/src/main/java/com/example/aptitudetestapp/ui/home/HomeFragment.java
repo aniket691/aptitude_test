@@ -68,7 +68,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void onResponse(Call<MasterResponse> call, Response<MasterResponse> response) {
                     if (response.isSuccessful()) {
+
                         server_ans_list = response.body().getQues();
+
                         for (int i = 0; i < server_ans_list.size(); i++) {
                             display_ques_list.add(new InputQues(server_ans_list.get(i).getQues(), server_ans_list.get(i).getOp1(),
                                     server_ans_list.get(i).getOp2(), server_ans_list.get(i).getOp3(), server_ans_list.get(i).getOp4()));
