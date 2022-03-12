@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/startTestFragment"
         android:name="com.example.aptitudetestapp.ui.StartTestFragment"
-        android:label="fragment_start_test"
+        android:label="Start Test"
         tools:layout="@layout/fragment_start_test">
         <action
             android:id="@+id/action_startTestFragment_to_nav_home"
@@ -38,6 +38,6 @@
     <fragment
         android:id="@+id/showScoreFragment"
         android:name="com.example.aptitudetestapp.ui.ShowScoreFragment"
-        android:label="fragment_show_score"
+        android:label="Score"
         tools:layout="@layout/fragment_show_score" />
 </navigation>

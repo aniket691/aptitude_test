@@ -35,45 +35,45 @@
 
             <RadioButton
                 android:id="@+id/one"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:checked="false"
                 android:text="Male"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <RadioButton
                 android:id="@+id/two"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="0.13"
                 android:checked="false"
                 android:text="Female"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <RadioButton
                 android:id="@+id/three"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="0.13"
                 android:checked="false"
                 android:text="Female"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <RadioButton
                 android:id="@+id/four"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="0.13"
                 android:checked="false"
                 android:text="Female"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
         </RadioGroup>
     </LinearLayout>
