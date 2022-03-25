@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AptitudeTestApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainAct"
+            android:name=".activity.MainAct"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.AppCompat.Light">

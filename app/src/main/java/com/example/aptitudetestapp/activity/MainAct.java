@@ -1,12 +1,12 @@
-package com.example.aptitudetestapp;
+package com.example.aptitudetestapp.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.aptitudetestapp.ExampleDialog;
+import com.example.aptitudetestapp.R;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -41,7 +41,7 @@ public class MainAct extends AppCompatActivity implements NavigationView.OnNavig
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_home,
                 R.id.startTestFragment, R.id.showScoreFragment)
                 .setOpenableLayout(drawer)
                 .build();

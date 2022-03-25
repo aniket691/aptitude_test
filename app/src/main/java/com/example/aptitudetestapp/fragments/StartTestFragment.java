@@ -1,4 +1,4 @@
-package com.example.aptitudetestapp.ui;
+package com.example.aptitudetestapp.fragments;
 
 import android.os.Bundle;
 

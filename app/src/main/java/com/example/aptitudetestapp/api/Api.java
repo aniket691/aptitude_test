@@ -1,4 +1,4 @@
-package com.example.aptitudetestapp;
+package com.example.aptitudetestapp.api;
 
 
 import java.util.List;

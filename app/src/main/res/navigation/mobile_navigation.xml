@@ -7,28 +7,21 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.aptitudetestapp.ui.home.HomeFragment"
+        android:name="com.example.aptitudetestapp.fragments.ShowQuestionFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_showScoreFragment"
             app:destination="@id/showScoreFragment" />
+        <argument
+            android:name="count"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.aptitudetestapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_exit"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.aptitudetestapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
         android:id="@+id/startTestFragment"
-        android:name="com.example.aptitudetestapp.ui.StartTestFragment"
+        android:name="com.example.aptitudetestapp.fragments.StartTestFragment"
         android:label="Start Test"
         tools:layout="@layout/fragment_start_test">
         <action
@@ -37,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/showScoreFragment"
-        android:name="com.example.aptitudetestapp.ui.ShowScoreFragment"
+        android:name="com.example.aptitudetestapp.fragments.ShowScoreFragment"
         android:label="Score"
         tools:layout="@layout/fragment_show_score" />
 </navigation>

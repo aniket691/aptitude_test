@@ -1,4 +1,4 @@
-package com.example.aptitudetestapp.DataSaver;
+package com.example.aptitudetestapp.datasaver;
 
 import android.content.Context;
 import android.content.SharedPreferences;

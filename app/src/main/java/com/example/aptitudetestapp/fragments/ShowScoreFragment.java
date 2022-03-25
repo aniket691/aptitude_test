@@ -1,17 +1,14 @@
-package com.example.aptitudetestapp.ui;
+package com.example.aptitudetestapp.fragments;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.aptitudetestapp.DataSaver.SharedPref;
 import com.example.aptitudetestapp.R;
 
 public class ShowScoreFragment extends Fragment {
@@ -28,9 +25,8 @@ public class ShowScoreFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_show_score, container, false);
         TextView textView = v.findViewById(R.id.result);
-        SharedPref sharedPref = SharedPref.getInstance(getContext());
-        String res = sharedPref.getData("result");
-        textView.setText(res);
+        String s = getArguments().getString("score");
+        textView.setText(s);
         return v;
     }
 }

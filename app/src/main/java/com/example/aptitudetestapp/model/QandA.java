@@ -12,7 +12,8 @@ public class QandA {
     String op4;
     String question_type;
 
-    public QandA(int id, String ques, String right_option, String topic, String op1, String op2, String op3, String op4, String question_type) {
+    public QandA(int id, String ques, String right_option, String topic, String op1, String op2, String op3, String op4,
+                 String question_type) {
         this.id = id;
         this.ques = ques;
         this.right_option = right_option;
